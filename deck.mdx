@@ -1,0 +1,207 @@
+import { Appear, Head, Image } from "mdx-deck";
+import { FullScreenCode, Invert, Split } from "mdx-deck/layouts";
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+export { dark as theme } from "mdx-deck/themes";
+
+<Head>
+  <title>Testing mail service with Playwright</title>
+  <meta itemProp="name" content="Testing mail service with Playwright" />
+  <meta itemProp="description" content="Testing mail service with Playwright" />
+  <meta property="og:title" content="Testing mail service with Playwright" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Testing mail service with Playwright" />
+  <meta property="og:site_name" content="Testing mail service with Playwright" />
+  <meta property="article:section" content="Testing mail service with Playwright" />
+</Head>
+
+
+# Testing mail service
+
+🎭 with Playwright 🎭
+
+---
+
+
+### We send to user:
+
+<Appear>
+  <p />
+  <p>
+    📧 newsletters,
+  </p>
+  <p>
+    📧 order confirmation,
+  </p>
+  <p>
+    📧 reset password link,
+  </p>
+  <p>
+    📧 email verification request,
+  </p>
+  <p>
+    📧 acknowledge of receiving their message,
+  </p>
+  <p>
+    📧 notifications,
+  </p>
+  <p>
+    and more...
+  </p>
+</Appear>
+
+
+export default Split
+
+---
+
+### We use 3rd party providers:
+
+<Appear>
+  <p><a href="https://aws.amazon.com/ses/">Amazon SES</a></p>
+  <p><a href="https://mailchimp.com/en-gb/?currency=GBP">MailChimp</a></p>
+  <p><a href="https://postmarkapp.com/">Postmark</a></p>
+  <p><a href="https://sendgrid.com/">SendGrid</a></p>
+</Appear>
+
+export default Split
+
+
+---
+
+<Image src={require("!file-loader!./img/prod.png")} size="contain" />
+
+
+---
+
+### Delivered! 📫
+
+---
+
+<Image src={require("!file-loader!./img/200.jpeg")} size="contain" />
+
+---
+
+### But what gets delivered to user? 🙀
+<Appear>
+  <p />
+  <p>
+  allows the user to perform the requested action (verify email, reset password)?
+  </p>
+  <p>
+   contains content that matches our design system?
+  </p>
+  <p>
+    doesn't contain any private data?
+  </p>
+  <p>
+    doesn't contain the "this is a test in dev environment" string as the email subject?
+  </p>
+</Appear>
+
+
+---
+
+<Image src={require("!file-loader!./img/test.png")} size="contain" />
+
+
+---
+
+### Setting up SMTP server ⚙️
+
+- [Mailtrap](https://mailtrap.io/)
+- [Mailosaur](https://mailosaur.com/)
+- [Mailcatcher](https://mailcatcher.me/)
+- [Mailhog](https://github.com/mailhog/MailHog)
+- and more
+
+---
+
+<Image src={require("!file-loader!./img/mailbox.png")} size="contain" />
+
+---
+
+<Image src={require("!file-loader!./img/response.png")} size="contain" />
+
+---
+## Playwright 🎭
+- [Playwright](https://playwright.dev/)
+- E2E, API, visual testing, etc 
+- browser
+- Nodejs, Python, Java, .NET
+- join Stefan Judis talk to find out more
+
+---
+<CodeSurfer
+  title="Test"
+  code={require("!raw-loader!./examples/test.js")}
+  lang="javascript"
+  showNumbers={true}
+  theme={nightOwl}
+  dark={false}
+/>
+---
+<CodeSurfer
+  title="Fixture with emailAPI context"
+  code={require("!raw-loader!./examples/fixtures.js")}
+  lang="javascript"
+  showNumbers={true}
+  theme={nightOwl}
+  dark={false}
+  steps={[
+    { range: [6, 15], notes: "base url and headers ✏️" },
+  ]}
+/>
+---
+
+<CodeSurfer
+  title="Getting email from SMTP server"
+  code={require("!raw-loader!./examples/email-api.js")}
+  lang="javascript"
+  showNumbers={true}
+  theme={nightOwl}
+  dark={false}
+  steps={[
+    { range: [13, 22], notes: "GET email ✏️" },
+    { range: [26, 28], notes: "get 1st item and decode body ✏️" },
+    { range: [1, 2], notes: "helper libraries ✏️" },
+    { range: [29, 30], notes: "and return email body ✏️" },
+  ]}
+/>
+
+---
+<CodeSurfer
+  title="Use HTML Body to render email page"
+  code={require("!raw-loader!./examples/email-page.js")}
+  lang="javascript"
+  showNumbers={true}
+  theme={nightOwl}
+  dark={false}
+  steps={[
+    { range: [12, 17], notes: "Render HTML ✏️" },
+    { range: [19, 24], notes: "click verify button ✏️" },
+  ]}
+/>
+---
+<Image src={require("!file-loader!./img/emailBody.png")} size="contain" />
+---
+<Image src={require("!file-loader!./img/newTab.png")} size="contain" />
+---
+
+---
+### Useful links
+- [Mailhog Swagger](https://github.com/mailhog/MailHog/blob/master/docs/APIv2/swagger-2.0.json)
+- [Mailhog Docker with auth](https://github.com/KatKmiotek/mailhog_with_auth)
+- [=3D](https://stackoverflow.com/questions/4016067/whats-a-3d-doing-in-this-html)
+- [ThunderClient](https://www.thunderclient.com/)
+- [contact me](https://www.linkedin.com/in/katarzyna-kmiotek/)
+
+export default Split
+
+---
+
+ ## Thanks!
+
+ <p>to get a copy of this slide deck: </p>
+
+---
