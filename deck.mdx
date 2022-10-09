@@ -2,7 +2,7 @@ import { Appear, Head, Image } from "mdx-deck";
 import { FullScreenCode, Invert, Split } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
-export { poppins as theme } from "mdx-deck/themes";
+export { future as theme } from "mdx-deck/themes";
 
 
 <Head>
@@ -28,7 +28,6 @@ export { poppins as theme } from "mdx-deck/themes";
 ### We send to user:
 
 <Appear>
-  <p />
   <p>
     📧 newsletters,
   </p>
@@ -47,9 +46,6 @@ export { poppins as theme } from "mdx-deck/themes";
   <p>
     📧 notifications,
   </p>
-  <p>
-    and more...
-  </p>
 </Appear>
 
 
@@ -59,12 +55,43 @@ export default Split
 
 ### We use 3rd party providers:
 
-- [Amazon SES](https://aws.amazon.com/ses/)
-- [MailChimp](https://mailchimp.com/en-gb/?currency=GBP)
-- [Postmark](https://postmarkapp.com/)
-- [SendGrid](https://sendgrid.com/)
+[Amazon SES](https://aws.amazon.com/ses/)
+<p>   </p>
+[MailChimp](https://mailchimp.com/en-gb/?currency=GBP)
+<p>   </p>
+
+[Postmark](https://postmarkapp.com/)
+<p>   </p>
+
+[SendGrid](https://sendgrid.com/)
 
 export default Split
+
+
+---
+
+### Delivered! 📫
+
+---
+
+### But what gets delivered to the user?
+<Appear>
+  <p>
+  can they click the link and reset password?
+  </p>
+  <p>
+  does verification email takes them to the correct domain?
+  </p>
+  <p>
+   does content matches our design system?
+  </p>
+  <p>
+    doesn't contain any private data?
+  </p>
+  <p>
+    and doesn't contain the "this is a test in dev environment" string as the email subject?
+  </p>
+</Appear>
 
 
 ---
@@ -74,46 +101,16 @@ export default Split
 
 ---
 
-### Delivered! 📫
-
----
-
-<Image src={require("!file-loader!./img/200.jpeg")} size="contain" />
-
----
-
-### But what gets delivered to user? 🙀
-<Appear>
-  <p />
-  <p>
-  allows the user to perform the requested action (verify email, reset password)?
-  </p>
-  <p>
-   contains content that matches our design system?
-  </p>
-  <p>
-    doesn't contain any private data?
-  </p>
-  <p>
-    doesn't contain the "this is a test in dev environment" string as the email subject?
-  </p>
-</Appear>
-
-
----
-
 <Image src={require("!file-loader!./img/test.png")} size="contain" />
 
-
 ---
 
-### Setting up SMTP server ⚙️
+### Fake SMTP server ⚙️
 
 - [Mailtrap](https://mailtrap.io/)
 - [Mailosaur](https://mailosaur.com/)
 - [Mailcatcher](https://mailcatcher.me/)
 - [Mailhog](https://github.com/mailhog/MailHog)
-- and more
 
 ---
 
@@ -123,13 +120,6 @@ export default Split
 
 <Image src={require("!file-loader!./img/response.png")} size="contain" />
 
----
-## Playwright 🎭
-- [Playwright](https://playwright.dev/)
-- E2E, API, visual testing, etc 
-- browser
-- Nodejs, Python, Java, .NET
-- join Stefan Judis talk to find out more
 
 ---
 <CodeSurfer
@@ -139,6 +129,9 @@ export default Split
   showNumbers={true}
   theme={nightOwl}
   dark={false}
+  steps={[
+    { range: [43, 53], notes: "pseudo-code ✏️" },
+  ]}
 />
 ---
 <CodeSurfer
@@ -182,10 +175,54 @@ export default Split
     { range: [19, 24], notes: "click verify button ✏️" },
   ]}
 />
+
+---
+<CodeSurfer
+  title="Test"
+  code={require("!raw-loader!./examples/test.js")}
+  lang="javascript"
+  showNumbers={true}
+  theme={nightOwl}
+  dark={false}
+  steps={[
+    { range: [5, 16] },
+  ]}
+/>
 ---
 <Image src={require("!file-loader!./img/emailBody.png")} size="contain" />
 ---
 <Image src={require("!file-loader!./img/newTab.png")} size="contain" />
+---
+<CodeSurfer
+  title="More tests"
+  code={require("!raw-loader!./examples/test.js")}
+  lang="javascript"
+  showNumbers={true}
+  theme={nightOwl}
+  dark={false}
+  steps={[
+    { range: [27, 27], notes: "Visual regression"  },
+    { range: [39, 40], notes: "get values of element" },
+  ]}
+/>
+---
+<Appear>
+  <p>
+    ✅ checked that email got delivered to user
+  </p>
+  <p>
+    ✅ checked functionality of button
+  </p>
+  <p>
+    ✅ checked navigation to correct url
+  </p>
+  <p>
+    ✅ checked visual changes in email body
+  </p>
+  <p>
+    ✅ assert that DOM elements have expected attributes
+  </p>
+</Appear>
 ---
 ### Useful links
 - [Mailhog Swagger](https://github.com/mailhog/MailHog/blob/master/docs/APIv2/swagger-2.0.json)
